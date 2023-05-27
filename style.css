@@ -1,0 +1,38 @@
+.box {
+    width: 400px;
+    padding: 20px;
+     /* margin-left: 505px; */
+    margin: 0, auto;
+    text-align: center;
+    box-shadow: 10px 10px 8px 10px #888888;
+    /* border: 2px solid black; */
+    background-color: rgb(189, 231, 248);
+  }
+
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+  }
+  
+  #resultContainer {
+    margin-top: 20px;
+  }
+  
+  canvas {
+    margin-top: 20px;
+  }
+nav{
+  font-size: 3vh;
+}
+.logo a{
+  font-size: 5vh;
+  color: green;
+  margin-left:23px;
+  margin-right:73px;
+  font-style: oblique;
+}

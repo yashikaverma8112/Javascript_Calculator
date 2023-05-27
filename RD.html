@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RD Calculator</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <style>
+        /* CSS styling for the calculator */
+      body{
+        background-color: palevioletred;
+      }
+        .box-rd {
+			width: 400px;
+    padding: 20px;
+    text-align: center;
+     box-shadow: 10px 10px 8px 10px #888888;
+    top:0;
+    margin: 0, auto;
+    text-align: center;
+    background-color: rgb(202, 231, 221);
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        .input-group label {
+            display: inline-block;
+            width: 200px;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+			
+        }
+
+        #pie-chart {
+            margin-top: 20px;
+            width: 400px;
+            height: 400px;
+        }
+		button {
+    padding: 10px 20px;
+  }
+  
+    </style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary" width="100%">
+		<div class="container-fluid">
+      <h1 class="logo">
+
+        <a class="navbar-brand" href="index.html#">FINcal</a>
+      </h1>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+			  <li class="nav-item">
+				<a class="nav-link " aria-current="page" href="index.html">SIP</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="FD.html">FD</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link active" href="RD.html">RD</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="emi.html">EMI</a>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+	  <center>
+
+	 
+    <div class="box-rd">
+        <h2>RD Calculator</h2>
+        <div class="input-group">
+            <label for="investment">Monthly Investment:</label>
+            <input type="number" id="investment" required>
+        </div>
+        <div class="input-group">
+            <label for="rate">Interest Rate (%):</label>
+            <input type="number" id="rate" required>
+        </div>
+        <div class="input-group">
+            <label for="tenure">Tenure (months):</label>
+            <input type="number" id="tenure" required>
+        </div>
+        <button onclick="calculateRD()" class="btn btn-primary btn-lg">Calculate</button>
+        <div class="result">
+            <p>Maturity Amount: <span id="maturityAmount"></span></p>
+            <p>Interest Earned: <span id="interestEarned"></span></p>
+        </div>
+        <canvas id="pie-chart"></canvas>
+    </div>
+</center>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+		function calculateRD() {
+    // Get input values
+    var investment = parseFloat(document.getElementById("investment").value);
+    var rate = parseFloat(document.getElementById("rate").value);
+    var tenure = parseInt(document.getElementById("tenure").value);
+
+    // Calculate maturity amount and interest earned
+    var maturityAmount = investment * tenure + (investment * (tenure * (tenure + 1))) / 2 * (rate / 100) / 12;
+    var interestEarned = maturityAmount - (investment * tenure);
+
+    // Display the results
+    document.getElementById("maturityAmount").textContent = maturityAmount.toFixed(2);
+    document.getElementById("interestEarned").textContent = interestEarned.toFixed(2);
+
+    // Generate a pie chart
+    var ctx = document.getElementById("pie-chart").getContext("2d");
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Investment Amount', 'Interest Earned'],
+            datasets: [{
+                data: [investment * tenure, interestEarned],
+                backgroundColor: ['#36a2eb', '#ff6384'],
+            }]
+        }
+    });
+}
+
+	</script>
+	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>

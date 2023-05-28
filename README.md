@@ -1,6 +1,20 @@
-# Financial_Calculator
+# Financial_Calculator & Maths_Calcultor
+
+
+#Maths Calculator
+
+It consists simple mathematical calculator to perform simple calculation of maths
+
+#FINcal
 This FINcal project is built using html , css, javascript . It contain SIP calculator, FD calculator, RD calculator, EMI calculator with chart and graph
 I use some logical formula to calcuate sip, fd, rd, emi. 
+
+
+#Output
+
+[recording-2023-05-29-00-08-28_Edit.webm.webm](https://github.com/yashikaverma8112/Financial_Calculator/assets/96378034/dca8a2ce-f27f-4e93-9094-40aee5f68a1a)
+
+
 
 What is SIP Calculator? 
 
@@ -19,7 +33,7 @@ What is EMI calculator?
  EMI calculator is a basic calculator that helps you to calculate the EMI, monthly interest and monthly reducing balance on the basis of principal amount, loan tenure and interest rate
 
 
-#Output
+
 
 When click to FINcal or SIP
 
